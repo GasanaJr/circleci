@@ -12,8 +12,14 @@ jobs:
       - run:
           command: npm install save --
           name: install npm dependencies
+      -run: 
+          command: npm install mocha
+          name: install mocha
+      -run: 
+          command: npm install supertest
+          name: install supertest
       - run:
-          command: ./node_modules/mocha/bin/mocha test/
+          command: npm test
           name: Run tests
       - run:
           command: npm build
