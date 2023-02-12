@@ -12,10 +12,10 @@ jobs:
       - run:
           command: npm install save --
           name: install npm dependencies
-      -run: 
+      - run: 
           command: npm install mocha
           name: install mocha
-      -run: 
+      - run: 
           command: npm install supertest
           name: install supertest
       - run:
