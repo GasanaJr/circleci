@@ -1,32 +1,28 @@
-version: 2.4
+version: 2.1
+orbs:
+  node: circleci/node@5.0.2
 
 jobs:
-  build:
-    working_directory: ~/repo
-    docker:
-      - image: node:14
-
+  build_and_test:
+    executor: node/default
     steps:
       - checkout
-
+      - node/install-packages:
+          pkg-manager: npm
       - run:
-          name: Install Dependencies
-          command: npm ci
-
-      - run:
-          name: Run Tests
           command: npm test
-
+          name: Run tests
       - run:
-          name: Build Application
-          command: npm run build
-
-      - store_artifacts:
-          path: ~/repo/dist
+          command: npm build
+          name: Build app
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
 
 workflows:
-  version: 2.1
-
-  build-and-deploy:
+  test_my_app:
     jobs:
-      - build
+      - build_and_test
+
+
