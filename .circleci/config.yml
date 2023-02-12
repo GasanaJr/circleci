@@ -1,0 +1,32 @@
+version: 2.4
+
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: node:14
+
+    steps:
+      - checkout
+
+      - run:
+          name: Install Dependencies
+          command: npm ci
+
+      - run:
+          name: Run Tests
+          command: npm test
+
+      - run:
+          name: Build Application
+          command: npm run build
+
+      - store_artifacts:
+          path: ~/repo/dist
+
+workflows:
+  version: 2.1
+
+  build-and-deploy:
+    jobs:
+      - build
