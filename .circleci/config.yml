@@ -1,25 +1,37 @@
-version: 2.1 
+version: 2.1
+
 jobs:
   build:
     docker:
-      - image: circleci/node:14
+      - image: node:14
+
+    working_directory: ~/app
+
     steps:
       - checkout
 
-      - restore_cache:
-          key: dependency-cache-{{ .Branch }}-{{ epoch }}
-      - run: npm install
-      - run: npm install mocha chai chai-http
-      - save_cache:
-          key: dependency-cache-{{ .Branch }}-{{ epoch }}
-          paths:
-            - node_modules
-     connection:
-          host: 127.0.0.1
-          port: 27017
+      - run:
+          name: Install dependencies
+          command: npm ci
+      - run:
+          name: install mocha 
+          command: npm install mocha
 
       - run:
-          name: "Run Mocha tests"
+          name: Run tests
           command: npm test
 
+      - run:
+          name: Connect to MongoDB Compass
+          command: |
+            echo "Connecting to MongoDB Compass..."
+            mongodb-compass-cli connect \
+              --host=127.0.0.1 \
+              --port=27017 \
+             
 
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build
