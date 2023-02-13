@@ -19,4 +19,10 @@ jobs:
           name: Run Tests
           command: |
             npm test
+     
+workflows:
+  testing:
+    jobs:
+      - build
+
 
