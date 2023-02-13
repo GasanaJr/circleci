@@ -11,9 +11,6 @@ jobs:
       - checkout
 
       - run:
-          name: Install dependencies
-          command: npm ci
-      - run:
           name: install mocha 
           command: npm install mocha
 
