@@ -20,7 +20,7 @@ jobs:
           command: |
             if [ "${CIRCLE_TEST_REPORTS}" != "" ]; then
                exit 0
-           else
+            else
                exit 1
             fi
 
