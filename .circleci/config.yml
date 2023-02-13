@@ -1,5 +1,4 @@
-version: 2.1
-
+version: 2.1 
 jobs:
   build:
     docker:
@@ -15,6 +14,9 @@ jobs:
           key: dependency-cache-{{ .Branch }}-{{ epoch }}
           paths:
             - node_modules
+     connection:
+          host: 127.0.0.1
+          port: 27017
 
       - run:
           name: "Run Mocha tests"
