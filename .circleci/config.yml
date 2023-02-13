@@ -1,11 +1,8 @@
 version: 2.1
-
-orbs:
-  node: circleci/node@5.0.2
-
 jobs:
-  build:
-    executor: node/default
+  run_tests:
+    docker:
+      - image: circleci/node:10
 
     steps:
       - checkout
@@ -21,7 +18,6 @@ jobs:
              
 
 workflows:
-  version: 2
   build-and-test:
     jobs:
-      - build
+      - run_tests
