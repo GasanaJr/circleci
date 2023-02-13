@@ -7,8 +7,6 @@ jobs:
   build:
     executor: node/default
 
-    working_directory: ~/app
-
     steps:
       - checkout
 
