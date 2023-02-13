@@ -3,16 +3,20 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: circleci/node:latest
+      - image: circleci/node:14
     steps:
       - checkout
 
+      - restore_cache:
+          key: dependency-cache-{{ .Branch }}-{{ epoch }}
       - run: npm install
-      - run: npm install mocha
-      - run: npm install chai
-      - run: npm install chai-http
+      - save_cache:
+          key: dependency-cache-{{ .Branch }}-{{ epoch }}
+          paths:
+            - node_modules
 
       - run:
-          name: "start testing"
+          name: "Run Mocha tests"
           command: npm test
+
 
