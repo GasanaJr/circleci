@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon app.js",
     "test": "mocha --timeout 30000",
-    "test-with-coverage": "nyc mocha --timeout 30000"
+    "test-with-coverage": "nyc mocha --timeout 30000 --watchAll=false"
   },
   "author": "",
   "license": "ISC",
