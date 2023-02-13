@@ -17,6 +17,7 @@ jobs:
       - checkout
 
       - run: npm install
+      - run: npm install mocha
 
       - run:
           name: "start testing"
