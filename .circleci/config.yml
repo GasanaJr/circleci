@@ -10,6 +10,7 @@ jobs:
       - restore_cache:
           key: dependency-cache-{{ .Branch }}-{{ epoch }}
       - run: npm install
+      - run: npm install mocha chai chai-http
       - save_cache:
           key: dependency-cache-{{ .Branch }}-{{ epoch }}
           paths:
