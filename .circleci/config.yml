@@ -14,11 +14,12 @@ jobs:
           command: |
             npm install
       - run: npm install mocha
+      - run: npm i -D nyc
 
       - run:
           name: Run Tests
           command: |
-            npm test
+            npm run test-with-coverage
      
 workflows:
   testing:
