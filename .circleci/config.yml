@@ -15,6 +15,15 @@ jobs:
       - run:
           name: Run tests
           command: npm test
+      - run:
+          name: Exit with code 0 if tests pass
+          command: |
+            if [ "${CIRCLE_TEST_REPORTS}" != "" ]; then
+               exit 0
+           else
+               exit 1
+            fi
+
 
              
 
