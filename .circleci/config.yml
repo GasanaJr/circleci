@@ -20,6 +20,10 @@ jobs:
           name: Run Tests
           command: |
             npm run test-with-coverage
+      - run:
+          name: Exit
+          command: |
+            ctrl + c
      
 workflows:
   testing:
