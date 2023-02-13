@@ -1,22 +1,21 @@
 version: 2.1
-orbs:
-  node: circleci/node@5.0.2
+
 jobs:
-  run_tests:
-    executor: node/default
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: node:14.15
 
     steps:
       - checkout
 
       - run:
-          name: install required packages
-          command: npm install mocha supertest chai chai-http
+          name: Install Dependencies
+          command: |
+            npm install
 
       - run:
-          name: Run tests
-          command: npm test         
+          name: Run Tests
+          command: |
+            npm test
 
-workflows:
-  build-and-test:
-    jobs:
-      - run_tests
