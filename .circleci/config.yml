@@ -18,13 +18,6 @@ jobs:
           name: Run tests
           command: npm test
 
-      - run:
-          name: Connect to MongoDB Compass
-          command: |
-            echo "Connecting to MongoDB Compass..."
-            mongodb-compass-cli connect \
-              --host=127.0.0.1 \
-              --port=27017 \
              
 
 workflows:
