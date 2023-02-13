@@ -13,6 +13,7 @@ jobs:
           name: Install Dependencies
           command: |
             npm install
+      - run: npm install mocha
 
       - run:
           name: Run Tests
