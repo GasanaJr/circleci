@@ -13,8 +13,8 @@ jobs:
       - checkout
 
       - run:
-          name: install mocha 
-          command: npm install mocha
+          name: install required packages
+          command: npm install mocha supertest chai chai-http
 
       - run:
           name: Run tests
