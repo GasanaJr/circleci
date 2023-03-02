@@ -1,3 +1,4 @@
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/GasanaJr/circleci/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/GasanaJr/circleci/tree/main)
 # RESTAPI & AUTHENTICATION OF USERS
 This is a restApi for the capstone project that allows CRUD operations on the blogs/posts of the users. This also serves as an authentication prototype for the users.
 
